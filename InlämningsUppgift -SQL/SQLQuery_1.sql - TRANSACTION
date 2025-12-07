@@ -1,0 +1,38 @@
+USE GymmedlemskapDB;
+GO
+
+--Transaction
+BEGIN TRANSACTION;
+
+BEGIN TRY
+    DECLARE @NyMedlemID INT;
+
+    INSERT INTO Medlem (Namn, Epost, MedlemskapID)
+    VALUES ('Test Person', 'test.person@example.com', 1);
+
+    SET @NyMedlemID = SCOPE_IDENTITY();
+
+    INSERT INTO Betalning (Datum, Belopp, MedlemID)
+    VALUES (GETDATE(), 299.00, @NyMedlemID);
+ 
+
+ 
+    COMMIT;
+END TRY
+BEGIN CATCH
+    ROLLBACK;
+
+    SELECT ERROR_MESSAGE() AS Fel;
+END CATCH;
+
+
+SELECT 
+    m.MedlemID,
+    m.Namn,
+    m.Epost,
+    b.BetalningsID,
+    b.Datum,
+    b.Belopp
+FROM Medlem m
+JOIN Betalning b ON m.MedlemID = b.MedlemID
+ORDER BY b.BetalningsID DESC;

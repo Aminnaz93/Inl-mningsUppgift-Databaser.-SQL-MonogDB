@@ -1,0 +1,29 @@
+USE GymmedlemskapDB;
+GO
+
+
+--JOIN 1 - MEDLEMMAR + MEDLEMSKAP
+SELECT
+    m.MedlemID,
+    m.Namn AS MedlemNamn,
+    g.Namn AS MedlemskapNamn,
+    g.PrisPerMånad
+FROM Medlem m
+INNER JOIN Gymmedlemskap g
+    ON m.MedlemskapID = g.MedlemskapID;
+GO
+
+
+-- Join 2 - Betalningar + medlemmar + medlemskap
+SELECT
+    b.BetalningsID,
+    b.Datum,
+    b.Belopp,
+    m.Namn AS MedlemNamn,
+    g.Namn AS MedlemskapNamn
+FROM Betalning b
+INNER JOIN Medlem m
+    ON b.MedlemID = m.MedlemID
+INNER JOIN Gymmedlemskap g
+    ON m.MedlemskapID = g.MedlemskapID;
+GO

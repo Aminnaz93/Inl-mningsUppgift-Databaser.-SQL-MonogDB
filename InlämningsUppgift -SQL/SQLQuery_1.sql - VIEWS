@@ -1,0 +1,34 @@
+USE GymmedlemskapDB;
+GO
+
+--View 1 - medlem + medlemskap
+CREATE VIEW vw_MedlemMedlemskap AS
+SELECT
+    m.MedlemID,
+    m.Namn AS MedlemNamn,
+    m.Epost,
+    g.Namn AS MedlemskapNamn,
+    g.PrisPerMånad
+FROM Medlem m
+INNER JOIN Gymmedlemskap g
+    ON m.MedlemskapID = g.MedlemskapID;
+GO
+
+SELECT * FROM vw_MedlemMedlemskap;
+GO
+
+--View 2 - Betalningsöversikt
+CREATE VIEW vw_BetalningsOversikt AS
+SELECT
+    b.BetalningsID,
+    b.Datum,
+    b.Belopp,
+    m.MedlemID,
+    m.Namn AS MedlemNamn
+FROM Betalning b
+INNER JOIN Medlem m
+    ON b.MedlemID = m.MedlemID;
+GO
+
+SELECT * FROM vw_BetalningsOversikt;
+GO

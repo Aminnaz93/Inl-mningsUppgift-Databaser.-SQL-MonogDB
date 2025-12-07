@@ -1,0 +1,6 @@
+--Databas GymmedlemskapDB
+CREATE DATABASE GymmedlemskapDB;
+GO
+
+USE GymmedlemskapDB;
+GO

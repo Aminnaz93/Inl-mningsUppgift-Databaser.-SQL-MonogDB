@@ -1,0 +1,24 @@
+USE GymmedlemskapDB;
+GO
+
+--CREATE 
+INSERT INTO Medlem(Namn, Epost,MedlemskapID)
+VALUES('Karina Berg', 'Karin@gmail.com', 3);
+GO
+
+--READ
+SELECT * FROM Gymmedlemskap;
+SELECT * FROM Medlem;
+SELECT * FROM Betalning;
+GO
+
+--UPDATE 
+UPDATE Medlem
+SET Epost = 'Amin.Nazari@gmail.com'
+WHERE MedlemID = 1;
+GO
+
+--DELETE
+DELETE FROM Betalning WHERE MedlemID = 1;
+DELETE FROM Medlem WHERE MedlemID = 1;
+GO

@@ -1,0 +1,42 @@
+USE GymmedlemskapDB;
+GO
+
+
+
+--Tabell 1 - Gymmedlemskap
+CREATE TABLE Gymmedlemskap(
+    MedlemskapID INT IDENTITY(1,1) PRIMARY KEY,
+    Namn VARCHAR(50) NOT NULL,
+    PrisPerMånad DECIMAL(8,2) NOT NULL
+);
+GO
+
+
+--Tabell 2 - Medlem
+CREATE TABLE Medlem(
+    MedlemID INT IDENTITY(1,1) PRIMARY KEY,
+    Namn VARCHAR(100) NOT NULL,
+    Epost VARCHAR(100) NOT NULL,
+    MedlemskapID INT NOT NULL,
+    CONSTRAINT FK_Medlem_Medlemskap
+    FOREIGN KEY(MedlemskapID)
+    REFERENCES Gymmedlemskap(MedlemskapID)
+);
+GO
+
+
+--Tabell 3 - Betalning
+CREATE TABLE Betalning(
+    BetalningsID INT IDENTITY(1,1) PRIMARY KEY,
+    Datum DATE NOT NULL,
+    Belopp DECIMAL(8,2) NOT NULL,
+    MedlemID INT NOT NULL,
+    CONSTRAINT FK_Betalning_Medlem
+    FOREIGN KEY(MedlemID)
+    REFERENCES Medlem(MedlemID)
+);
+GO
+
+SELECT * FROM Gymmedlemskap;
+SELECT * FROM Medlem;
+SELECT * FROM Betalning;

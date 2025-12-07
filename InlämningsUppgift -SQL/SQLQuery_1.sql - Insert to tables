@@ -1,0 +1,44 @@
+USE GymmedlemskapDB;
+GO
+
+--Insert into Gymmedlemskap
+INSERT INTO Gymmedlemskap(Namn, PrisPerMånad)
+VALUES('Bas', 299.00);
+
+INSERT INTO Gymmedlemskap(Namn, PrisPerMånad)
+VALUES('Premium', 499.00);
+
+INSERT INTO Gymmedlemskap(Namn, PrisPerMånad)
+VALUES('VIP', 699.00);
+GO
+
+
+
+--Insert into Medlemmar
+INSERT INTO Medlem(Namn, Epost, MedlemskapID)
+VALUES('Amin Nazari', 'Amin@gmail.com', 1);
+
+INSERT INTO Medlem(Namn, Epost, MedlemskapID)
+VALUES('Sara Håkansson', 'Sara@gmail.com', 2);
+
+INSERT INTO Medlem(Namn, Epost, MedlemskapID)
+VALUES('Gustav Lenander', 'Gustav@gmail.com', 1);
+GO
+
+
+--Insert into Betalningar
+INSERT INTO Betalning (Datum, Belopp, MedlemID)
+VALUES ('2025-12-27', 299.00, 1);
+
+INSERT INTO Betalning (Datum, Belopp, MedlemID)
+VALUES ('2025-12-27', 499.00, 2);
+
+INSERT INTO Betalning (Datum, Belopp, MedlemID)
+VALUES ('2025-12-27', 299.00, 3);
+GO
+
+
+SELECT * FROM Gymmedlemskap;
+SELECT * FROM Medlem;
+SELECT * FROM Betalning;
+GO

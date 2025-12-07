@@ -1,0 +1,19 @@
+USE GymmedlemskapDB;
+GO
+
+-- Antal medlemmar 
+SELECT COUNT (*) AS AntalMedlemmar
+FROM Medlem;
+GO
+
+
+--MedelPris per Månad
+SELECT AVG(PrisPerMånad) AS MedelPrisPerManad
+FROM Gymmedlemskap;
+GO
+
+
+--Total betalt
+SELECT SUM(Belopp) AS TotaltBetalt
+FROM Betalning;
+GO
