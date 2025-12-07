@@ -12,7 +12,7 @@ LEFT JOIN Betalning b
     ON m.MedlemID = b.MedlemID;
 
 
-DELETE FROM Betalning
-WHERE MedlemID = 4;
+--DELETE FROM Betalning
+--WHERE MedlemID = 4;
 
 DELETE FROM Medlem WHERE MedlemID = 4;

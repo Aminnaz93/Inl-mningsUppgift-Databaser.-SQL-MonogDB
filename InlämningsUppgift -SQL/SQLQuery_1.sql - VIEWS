@@ -31,4 +31,4 @@ INNER JOIN Medlem m
 GO
 
 SELECT * FROM vw_BetalningsOversikt;
-GO
+GO 
